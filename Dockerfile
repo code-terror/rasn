@@ -13,5 +13,11 @@ COPY /fuzzing/Cargo.toml /rasn/fuzzing/Cargo.toml
 RUN ${HOME}/.cargo/bin/cargo afl build
 WORKDIR /
 COPY Mayhemfile Mayhemfile
-ENTRYPOINT ["cargo", "afl", "fuzz", "-i", "/rasn/fuzzing/in", "-o", "/rasn/fuzzing/out"]
-CMD ["/rasn/fuzzing/target/debug/fuzz"]
+# Package Stage
+FROM ubuntu:20.04
+
+COPY --from=builder /rasn/fuzzing/ /
+COPY --from=builder /Mayhemfile /Mayhemfile
+
+#ENTRYPOINT ["cargo", "afl", "fuzz", "-i", "/in", "-o", "/out"]
+#CMD ["/target/debug/fuzz"]

@@ -2,7 +2,7 @@ project: code-terror/rasn
 target: fuzz
 
 cmds:
-  - cmd: /rasn/fuzzing/target/debug/fuzz
+  - cmd: /target/debug/fuzz
     afl: true
 tests:
   - file://fuzzing/in
