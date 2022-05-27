@@ -13,4 +13,4 @@ publish = false
 rasn = { path = ".." }
 rasn-snmp = { path = "../standards/snmp" }
 rasn-pkix = { path = "../standards/pkix" }
-afl = "0.8.0"
+afl = "0.7.0"
