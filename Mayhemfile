@@ -4,5 +4,5 @@ target: cert_fuzz
 cmds:
   - cmd: /target/debug/fuzz
     afl: true
-tests:
+testsuite:
   - file://fuzzing/in
